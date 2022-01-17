@@ -24,9 +24,10 @@ set DRIVEPATH[3]="\\%INTERNHOST%\FolderD"
 :: Start Routine
 echo %ESC%[7m      CONNECTMANAGER v1.0             %ESC%[0m
 rem
-echo ::: Check if internal network
+rem
+echo ::: Check internal network
 ping 127.0.0.1 -n 2 > nul
-echo %ESC%[42mOK%ESC%[0m    -     Send request to server
+echo %ESC%[42mOK%ESC%[0m    -     Sent request to server
 ping -n 1 "%INTERNHOST%" | findstr /r /c:"[0-9] *ms" > nul
 
 if !ERRORLEVEL!  == 0 (
@@ -35,6 +36,7 @@ if !ERRORLEVEL!  == 0 (
     :: If Computer in interal network   
     echo %ESC%[42mOK%ESC%[0m    -     Connection confirmed. No VPN necessary.
     
+    rem
     rem
     echo ::: Mount Drives
     ping 127.0.0.1 -n 2 > nul
@@ -49,6 +51,7 @@ if !ERRORLEVEL!  == 0 (
     )
        
     rem
+    rem
     echo %ESC%[7m Everything ok. Window will be closed in 5 seconds %ESC%[0m
     ping 127.0.0.1 -n 5 > nul
 
@@ -57,6 +60,7 @@ if !ERRORLEVEL!  == 0 (
     :: If Computer remote
     echo %ESC%[43mNO%ESC%[0m    -     Not in network. VPN connection necessary
     ping 127.0.0.1 -n 1 > nul
+    rem
     rem
     echo ::: Test of internet connection
     echo %ESC%[42mOK%ESC%[0m    -     Test of internet connection initiated
@@ -81,6 +85,7 @@ if !ERRORLEVEL!  == 0 (
              echo %ESC%[42mOK%ESC%[0m    -     VPN connection established
              
              rem
+             rem
              echo ::: Mount Drives
              ping 127.0.0.1 -n 2 > nul
 
@@ -94,18 +99,23 @@ if !ERRORLEVEL!  == 0 (
             )
 
              rem
+             rem
              echo %ESC%[7m Everything ok. Window will be closed in 5 seconds %ESC%[0m
              ping 127.0.0.1 -n 5 > nul
     
           ) else (
 
+             rem
+             rem
              echo %ESC%[41mER%ESC%[0m    -     Error with VPN connection. Please try again.
              rem
              @pause
           )
       
     ) else (
-    :: If Internet Connection failed 
+    :: If Internet Connection failed
+      rem
+      rem 
       echo %ESC%[41mER%ESC%[0m    -     Error in connection test. Please check internet availability.
       rem
       @pause

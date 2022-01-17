@@ -17,4 +17,4 @@ You need to configure the following things to make the script work
 
 
 ## :gem: Credits
-The script uses the ANSI snippet from @mlocati to make the terminal more colorful :rainbow:. Thanks for that.
+The script uses the ANSI snippet from [mlocati](https://github.com/mlocati) to make the terminal more colorful :rainbow:. Thanks for that.
